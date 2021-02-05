@@ -17,3 +17,32 @@ button {
 nav {
     align-content: center;
 }
+/*   
+  .btn:hover, .btn-success:active, .btn-success:focus, .btn:active {
+    color: #ffffff !important;
+    background-color: #1F2838 !important;
+    border-color: #494F57 !important;
+    box-shadow: none;
+  } */
+
+  .btn { 
+    text-decoration: none; 
+    border: none; 
+    /* padding: 12px 40px;  */
+    font-size: 16px; 
+    background-color: brown; 
+    color: #fff; 
+    border-radius: 5px; 
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+    cursor: pointer; 
+    outline: none; 
+    transition: 0.2s all; 
+} 
+/* Adding transformation when the button is active */ 
+  
+.btn:active, .btn:focus { 
+    transform: scale(0.98); 
+    /* Scaling button to 0.98 to its original size */ 
+    box-shadow: 3px 2px 22px 1px rgb(190, 132, 132)  !important; 
+    /* Lowering the shadow */ 
+} 
