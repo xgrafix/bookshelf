@@ -1,0 +1,12 @@
+[
+    {
+        "wish_list_id": 3,
+        "name": "Shsa's Books",
+        "user_id": 2
+    },
+    {
+        "wish_list_id": 5,
+        "name": "Ali Mirza's Books",
+        "user_id": 2
+    }
+]
