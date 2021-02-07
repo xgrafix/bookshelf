@@ -1,1 +1,17 @@
 <p>book works!</p>
+
+<!-- {{ booksFullInfomation | json  }} -->
+
+<button (click)="getTodos()">Get Todos<br/></button>
+<button (click)="createTodos()">Create Todos<br/></button>
+
+<div>
+    <br/>
+</div>
+
+<div *ngFor="let todo of todos | async">
+    {{ todo | json }}
+</div>
+
+<hr>
+{{ newTodos | async | json }}
