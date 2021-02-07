@@ -9,9 +9,10 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { BookComponent } from './book/book.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
-import { MessageService } from './message.service';
 import { ConfigComponent } from './config/config.componenet';
 
+import { MessageService } from './message.service';
+import { BooksService } from './books.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,14 +21,14 @@ import { ConfigComponent } from './config/config.componenet';
     BookComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ConfigComponent
+    ConfigComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
