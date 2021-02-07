@@ -10,16 +10,17 @@ import { MessageService } from '../message.service';
 })
 
 export class ConfigComponent {
-    config: any;
     error: any;
-    headers: any;
+    config!: any;
+    headers!: string[];
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService) { 
+  }
 
   clear() {
-    this.config = undefined;
-    this.error = undefined;
-    this.headers = undefined;
+    this.config = undefined!;
+    this.error = "";
+    this.headers = [];
   }
 
   showConfig() {
@@ -30,13 +31,6 @@ export class ConfigComponent {
       });
   }
   
-  showConfig_v1() {
-    this.configService.getConfig_1()
-      .subscribe((data: Config) => this.config = {
-          heroesUrl: data.heroesUrl,
-          textfile:  data.textfile
-      });
-  }
 
   showConfig_v2() {
     this.configService.getConfig()
