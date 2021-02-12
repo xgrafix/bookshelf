@@ -64,7 +64,7 @@ export class BookComponent {
   createBooks() {
     const data: Book = {
       isbn: '8172387128312312381',
-      title: 'Laila Wa Domna',
+      title: 'Kalaila Wa Domna',
       author: 'Ma Adre Menho',
       category: 'Litrature',
     }
