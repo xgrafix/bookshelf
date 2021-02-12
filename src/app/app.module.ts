@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
@@ -22,6 +23,7 @@ import { BooksService } from './books.service';
     PageNotFoundComponent,
     HomeComponent,
     ConfigComponent,
+    MatDialogModule,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,6 @@ import { BooksService } from './books.service';
     HttpClientModule
   ],
   providers: [MessageService, BooksService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
