@@ -14,6 +14,10 @@ import { ConfigComponent } from './config/config.componenet';
 
 import { MessageService } from './message.service';
 import { BooksService } from './books.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogService } from './shared/confirm-dialog/confirm-dialog.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +27,16 @@ import { BooksService } from './books.service';
     PageNotFoundComponent,
     HomeComponent,
     ConfigComponent,
-    MatDialogModule,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
-  providers: [MessageService, BooksService],
+  providers: [MessageService, BooksService, ConfirmDialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
