@@ -4,13 +4,15 @@
 
 <button (click)="getBooks()">Get Books<br/></button>
 <button (click)="createBooks()">Create Todos<br/></button>
+<button (click)="handleClick()">Save</button>
+
 
 <div>
     <br/>
 </div>
 
-<div *ngFor="let todo of books | async">
-    {{ todo | json }}
+<div *ngFor="let book of books | async">
+    {{ book | json }}
 </div>
 
 <hr>

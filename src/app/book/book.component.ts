@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Output } from '@angular/core';
 import { BooksService } from '../books.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Todo } from './todo';
 import { Book } from './book';
 import { Observable } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+
+import { ConfirmDialogService } from '../shared/confirm-dialog/confirm-dialog.service';
+
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
+
 export class BookComponent {
 
   booksFullInfomation?: any;
@@ -17,6 +23,7 @@ export class BookComponent {
   books?: Observable<any>;
   newTodos?: Observable<any>;
   newBooks?: Observable<any>;
+  dialog?: MatDialog;
 
   // readonly ROOT_URL = 'https://jsonplaceholder.typicode.com';
   readonly ROOT_URL = 'http://localhost:8000';
@@ -31,7 +38,28 @@ export class BookComponent {
   //   });
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dialogService: ConfirmDialogService) { 
+  }
+
+  handleClick() {
+    const options = {
+      title: 'Leave page?',
+      message: 'By leaving this page you will permanently lose your form changes.',
+      cancelText: 'CANCEL',
+      confirmText: 'YES, LEAVE PAGE'
+    };
+    
+    this.dialogService.open(options);
+        
+    this.dialogService.confirmed().subscribe(confirmed => {
+       if (confirmed) {
+            this.saveData();
+          }
+        });
+  }
+  saveData() {
+    console.log('Hello');
+  }
 
   getTodos() {
 
@@ -73,9 +101,8 @@ export class BookComponent {
 
 
 
-    // this.newBooks = this.http.post<Book>(this.ROOT_URL + '/books', JSON.stringify(data))
-    //   .pipe(map(todo => todo))
+    this.newBooks = this.http.post<Book>(this.ROOT_URL + '/books', JSON.stringify(data))
+      .pipe(map(todo => todo))
   }
-
 
 }
