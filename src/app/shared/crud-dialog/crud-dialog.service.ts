@@ -7,6 +7,7 @@ import { CrudDialogComponent } from './crud-dialog.component';
 export class CrudDialogService {
   constructor(private dialog: MatDialog) { }
   dialogRef!: MatDialogRef<CrudDialogComponent>;
+  author?: string;
 
   public open(options: { title: any; message: any; cancelText: any; confirmText: any;
                           isbn: any; author: any; category: any; }) {
