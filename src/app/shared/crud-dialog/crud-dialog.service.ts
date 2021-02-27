@@ -7,14 +7,18 @@ import { CrudDialogComponent } from './crud-dialog.component';
 export class CrudDialogService {
   constructor(private dialog: MatDialog) { }
   dialogRef!: MatDialogRef<CrudDialogComponent>;
-  
-  public open(options: { title: any; message: any; cancelText: any; confirmText: any; }) {
+
+  public open(options: { title: any; message: any; cancelText: any; confirmText: any;
+                          isbn: any; author: any; category: any; }) {
     this.dialogRef = this.dialog.open(CrudDialogComponent, {    
          data: {
-           title: options.title,
-           message: options.message,
-           cancelText: options.cancelText,
-           confirmText: options.confirmText
+          title: options.title,
+          message: options.message,
+          cancelText: options.cancelText,
+          confirmText: options.confirmText,
+           isbn: options.isbn,
+           author: options.author,
+           category: options.category
          }
     });
   }

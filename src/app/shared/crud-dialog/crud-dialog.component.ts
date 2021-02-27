@@ -23,7 +23,10 @@ export class CrudDialogComponent {
                   cancelText: string,
                   confirmText: string,
                   message: string,
-                  title: string
+                  title: string,
+                  isbn: string,
+                  author: string,
+                  category: string
               }, private mdDialogRef: MatDialogRef<CrudDialogComponent>) { }
   public cancel() {
     this.close(false);
