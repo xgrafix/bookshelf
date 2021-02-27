@@ -8,6 +8,7 @@ import { map, filter, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ConfirmDialogService } from '../shared/confirm-dialog/confirm-dialog.service';
+import { CrudDialogService } from '../shared/crud-dialog/crud-dialog.service';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class BookComponent {
   //   });
 
 
-  constructor(private http: HttpClient, private dialogService: ConfirmDialogService) { 
+  constructor(private http: HttpClient, private dialogService: ConfirmDialogService, private CrudDialogService: CrudDialogService) { 
   }
 
   handleClick() {
@@ -59,6 +60,26 @@ export class BookComponent {
   }
   saveData() {
     console.log('Hello');
+  }
+
+  handleCrud() {
+    const options = {
+      title: 'Leave page?',
+      message: 'By leaving this page you will permanently lose your form changes.',
+      cancelText: 'CANCEL',
+      confirmText: 'YES, LEAVE PAGE',
+      isbn: '123123123',
+      author: 'Sloom',
+      category: 'Samba'
+    };
+
+    this.CrudDialogService.open(options);
+
+    this.CrudDialogService.confirmed().subscribe(confirmed => {
+      if (confirmed) {
+        console.log(options);
+         }
+       });
   }
 
   getTodos() {
