@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
@@ -20,6 +21,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
 import { ConfirmDialogService } from './shared/confirm-dialog/confirm-dialog.service';
 import { CrudDialogComponent } from './shared/crud-dialog/crud-dialog.component';
 import { CrudDialogService } from './shared/crud-dialog/crud-dialog.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { CrudDialogService } from './shared/crud-dialog/crud-dialog.service';
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [MessageService, BooksService, ConfirmDialogService, CrudDialogService],
   bootstrap: [AppComponent],
